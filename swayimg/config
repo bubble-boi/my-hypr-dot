@@ -9,7 +9,7 @@ border = #1f20201A
 shadow = #1f20201A
 
 [font]
-name = Rubik
+name = M Plus 1 Code
 color = #e0e0e0
 shadow = #00000000
 background = #00000000
@@ -18,4 +18,4 @@ background = #00000000
 show = no
 
 [keys.gallery]
-Return = exec $HOME/.scripts/SetHyprpaper.sh "%"
+Return = exec swayimg-set-wallpaper "%"
