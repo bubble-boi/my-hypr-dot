@@ -1,4 +1,5 @@
 # setup
+```sh
 mkdir -p ~/.config ~/.local/bin
 
 mv ~/.config/hypr    ~/.config/hypr.bak    2>/dev/null
