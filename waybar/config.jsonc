@@ -1,0 +1,83 @@
+{
+    "height": 0, "margin-top": 9, "margin-left": 9, "margin-right": 9, "margin-bottom": 4, "spacing": 2,
+
+    "modules-left":   ["clock", "group/media"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right":  ["network", "custom/SysLoad", "pulseaudio", "battery"],
+
+    "fixed-center": false,
+    "expand-center": true,
+
+    "clock": {
+        "format": "{:%Y.%m.%d %H:%M}",
+        "tooltip": false
+    },
+
+    "group/media": {
+        "orientation": "horizontal",
+        "modules": [
+            "image",
+            "custom/media"
+	]
+    },
+
+    "custom/media": {
+        "format": " {text}",
+        "return-type": "json",
+        "escape": true,
+        // "max-length": 40,
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py"
+    },
+
+    "image": {
+        "exec":"~/.config/waybar/scripts/GetMediaThumb.sh",
+        "size": 22,
+        "interval": 1
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}{name}",
+	"format-icons": {
+		"active": "*",
+                "default": " "
+	}
+    },
+
+    "network": {
+        "interval": 1,
+        "format-wifi": "{bandwidthDownBytes}, {bandwidthUpBytes}",
+        "format-disconnected": " - B/s, - B/s",
+        "tooltip": false
+    },
+
+    "custom/SysLoad": {
+        "format": "{text}",
+        "return-type": "json",
+        "tooltip": false,
+        "exec": "$HOME/.config/waybar/scripts/SysLoad.sh",
+        "interval": 1        
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{volume}%, {format_source}",
+        "format-muted": " - %, {format_source}",
+        "format-source": "{volume}%",
+        "format-source-muted": " - %",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-middle": "pavucontrol",
+        "tooltip": false
+    },
+
+    "battery": {
+        "format": "{capacity}%",
+        "format-charging": "{capacity}%",
+        "format-plugged": "{capacity}%",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip": false
+    }
+}

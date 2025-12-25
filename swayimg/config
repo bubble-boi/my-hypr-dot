@@ -1,0 +1,21 @@
+[viewer]
+window = #1f20201A
+scale = fill
+
+[gallery]
+background = #1f20201A
+select = #1f20201A
+border = #1f20201A
+shadow = #1f20201A
+
+[font]
+name = Rubik
+color = #e0e0e0
+shadow = #00000000
+background = #00000000
+
+[info]
+show = no
+
+[keys.gallery]
+Return = exec $HOME/.scripts/SetHyprpaper.sh "%"

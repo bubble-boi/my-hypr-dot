@@ -1,0 +1,68 @@
+@define-color color  #E0E0E0;
+@define-color color2 #000000;
+@define-color color3 #64E064;
+@define-color color4 #E0E064;
+@define-color color5 #E06464;
+
+/* global */
+* {
+  transition: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background: none;
+}
+
+/* modules */
+.module {
+  font-family: "M PLUS 1 Code";
+  font-size: 22px;
+  color: @color;
+}
+
+#clock,
+#media,
+.modules-center,
+#custom-SysLoad,
+#network,
+#pulseaudio,
+#battery {
+  padding: 0 10px;
+  background: alpha(@color2, .1);
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  box-shadow: inset 0 0 0 2px @color;
+  border: 1px solid alpha(@color2, .1);
+}
+
+.modules-center { margin: 0 3px; }
+
+#clock          { min-width: 180px; }
+#network        { min-width: 220px; }
+#custom-SysLoad { min-width: 180px; }
+#pulseaudio     { min-width: 130px; }
+#battery        { min-width:  60px; }
+
+/* workspaces */
+#workspaces,
+#workspaces button:hover {
+  background: none;
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
+#workspaces button {
+  padding: 5px 10px;
+  color: @color;
+  border: none;
+}
+
+/* battery state */
+#battery.charging                { color: @color3; }
+#battery.warning:not(.charging)  { color: @color4; }
+#battery.critical:not(.charging) { color: @color5; }

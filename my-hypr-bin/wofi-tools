@@ -1,0 +1,29 @@
+#!/bin/bash
+
+CHOICE=$(echo -e "Wallpaper\nRefreshPkg\nWfRecorder\nGrim\nGrim -g\nHyprpicker\nTesseract\nCancel" | wofi  --show=dmenu --prompt="" --width=20% --height=30% -n)
+
+case "$CHOICE" in
+  Wallpaper)
+    swayimg --gallery "$HOME/wallpapers"
+    ;;
+  RefreshPkg)
+    wofi-ent-refresh-pkg
+    ;;
+  WfRecorder)
+    wofi-ent-wf-recorder
+    ;;
+  Grim)
+    sleep 0.5; wofi-ent-grim-shot
+    ;;
+  "Grim -g")
+    wofi-ent-grim-shot-g
+    ;;
+  Hyprpicker)
+    sleep 0.5; hyprpicker | wl-copy
+    ;;
+  Tesseract)
+    wofi-ent-tesseract-ocr
+    ;;
+  *)
+    ;;
+esac

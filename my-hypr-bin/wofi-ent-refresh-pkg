@@ -1,0 +1,15 @@
+#!/bin/bash
+
+hyprctl reload
+
+pkill waybar
+pkill -f "wl-paste --type text --watch"
+pkill -f "wl-paste --type image --watch"
+pkill -f "wl-clip-persist"
+pkill -f fcitx5
+
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
+wl-clip-persist --clipboard regular &
+fcitx5 -d
+waybar &

@@ -1,0 +1,23 @@
+@define-color color  #E0E0E0;
+@define-color color2 #000000;
+
+* {
+  font-family: "M Plus 1 Code";
+  font-size: 26px;
+  color: @color;
+  background: none;
+}
+
+window, #input, #inner-box, #outer-box, #scroll, #text {
+  margin: 5px;
+}
+
+#input {
+  border: 2px solid @color;
+  border-radius: 0px;
+}
+
+#text:selected {
+  font-weight: bold;
+  border: none;
+}
