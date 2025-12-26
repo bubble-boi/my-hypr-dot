@@ -1,0 +1,95 @@
+#!/bin/bash
+
+TMP_CONF=$(mktemp --suffix=.jsonc)
+
+cat << 'EOF' > "$TMP_CONF"
+{
+  "logo": {
+    "type": "auto",
+    "padding": { "top": 1, "left": 1 }
+  },
+  "modules": [
+    "break",
+    {
+      "type": "os",
+      "key": "┃os          "
+    },
+    {
+      "type": "host",
+      "key": "┃host        "
+    },
+    {
+      "type": "kernel",
+      "key": "┃kernel      "
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[1;38;5;4m┗\u001b[0m"
+    },
+    {
+      "type": "cpu",
+      "key": "┃cpu         "
+    },
+    {
+      "type": "gpu",
+      "key": "┃gpu         "
+    },
+    {
+      "type": "memory",
+      "key": "┃memory      "
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[1;38;5;4m┗\u001b[0m"
+    },
+    {
+      "type": "wm",
+      "key": "┃wm          "
+    },
+    {
+      "type": "terminal",
+      "key": "┃terminal    "
+    },
+    {
+      "type": "terminalfont",
+      "key": "┃terminalfont"
+    },
+    {
+      "type": "shell",
+      "key": "┃shell       "
+    },
+    {
+      "type": "packages",
+      "key": "┃packages    "
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[1;38;5;4m┃topbar      \u001b[0m: waybar"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[1;38;5;4m┃imgviewer   \u001b[0m: swayimg"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[1;38;5;4m┃fetch       \u001b[0m: fastfetch"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[1;38;5;4m┗\u001b[0m"
+    },
+    {
+      "type": "colors"
+    },
+    "break"
+  ]
+}
+EOF
+
+if [[ -n "$1" ]]; then
+  fastfetch --kitty "$1" --config "$TMP_CONF"
+else
+  fastfetch --config "$TMP_CONF"
+fi
+
+rm -f "$TMP_CONF"

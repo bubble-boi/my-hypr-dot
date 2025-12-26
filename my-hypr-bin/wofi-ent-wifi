@@ -1,0 +1,19 @@
+#!/bin/bash
+
+nmcli radio wifi on
+
+LIST=$(nmcli -f IN-USE,SSID device wifi list | sed '1d')
+
+CHOICE=$(echo "$LIST" | wofi --show=dmenu --prompt="Wi-Fi" --width=30% --height=50% -n)
+
+[ -z "$CHOICE" ] && exit 0
+
+SSID=$(echo "$CHOICE" | awk '{print $2}')
+
+if nmcli -t -f NAME connection show | grep -Fxq "$SSID"; then
+    nmcli connection up "$SSID"
+else
+    PASS=$(wofi --show=dmenu --password --prompt="Password for $SSID" -n)
+    [ -z "$PASS" ] && exit 1
+    nmcli device wifi connect "$SSID" password "$PASS"
+fi
