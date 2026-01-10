@@ -1,0 +1,12 @@
+{
+    "position": "top",
+
+    "modules-right":  [
+                        "custom/spice"
+                      ],
+
+    "custom/spice": {
+        "format": " ",
+        "tooltip": false
+    }
+}

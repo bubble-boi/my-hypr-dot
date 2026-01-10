@@ -1,0 +1,29 @@
+#!/bin/bash
+
+CHOICE=$(
+  echo -e "RefreshSession\nRecordScreen\nScreenshot\nScreenshotRegion\nColorPick\nOCRCapture\nCancel" |
+    wofi  --show=dmenu --prompt="" --width=20% --height=50% -n
+)
+
+case "$CHOICE" in
+RefreshSession)
+  $HOME/.config/hypr/scripts/session.sh
+  ;;
+RecordScreen)
+  ~/.config/wofi/scripts/wofi-ent-wf-recorder
+  ;;
+Screenshot)
+  sleep 0.5; ~/.config/wofi/scripts/wofi-ent-grim-shot
+  ;;
+ScreenshotRegion)
+  ~/.config/wofi/scripts/wofi-ent-grim-shot-g
+  ;;
+ColorPick)
+  sleep 0.5; hyprpicker | wl-copy
+  ;;
+OCRCapture)
+  ~/.config/wofi/scripts/wofi-ent-tesseract-ocr
+  ;;
+  *)
+  ;;
+esac

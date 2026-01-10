@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+
+ln -sf -- "$1" "$HOME/.local/state/.current_wallpaper"
+hyprctl hyprpaper unload all
+hyprctl hyprpaper preload "$HOME/.local/state/.current_wallpaper"
+hyprctl hyprpaper wallpaper "DSI-1,$HOME/.local/state/.current_wallpaper"

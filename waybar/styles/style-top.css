@@ -1,0 +1,51 @@
+@import "css/colors.css";
+@import "css/corners.css";
+@import "css/global.css";
+
+#custom-corner-top-right { background-position: 0% 0%; }
+#custom-corner-top-left  { background-position: 100% 0%; }
+
+#clock,
+#custom-previous,
+#mpris.icon,
+#custom-next,
+#battery
+ {
+  background: @fedora;
+  padding: 4px 25px;
+}
+
+/* border-radius */
+#clock           { border-bottom-right-radius: 10px; }
+#custom-previous { border-bottom-left-radius: 10px; }
+#custom-next     { border-bottom-right-radius: 10px; }
+#battery         { border-bottom-left-radius: 10px; }
+
+/* batt */
+#battery.warning  { color: @yellow; }
+#battery.critical { color: @red; }
+#battery.charging { color: @green; }
+
+/* hover */
+#clock,
+#custom-previous,
+#mpris.icon,
+#custom-next {
+  transition: text-shadow .30s ease;
+}
+
+#clock:hover,
+#custom-previous:hover,
+#mpris.icon:hover,
+#custom-next:hover {
+  text-shadow: red 2px 5px;
+}
+
+/*  */
+#mpris.dynamic,
+#cpu,
+#memory,
+#network {
+  color: alpha(@white, .8);
+}
+

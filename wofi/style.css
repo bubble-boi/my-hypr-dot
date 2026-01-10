@@ -1,0 +1,23 @@
+@define-color color  #d8d8d8;
+@define-color color2 #181818;
+
+* {
+  font-family: "ProFont IIx Nerd Font Mono";
+  font-size: 24px;
+  color: @color;
+  background: none;
+}
+
+window, #input, #inner-box, #outer-box, #scroll, #text {
+  margin: 5px;
+}
+
+#input {
+  border: 2px solid alpha(@color, .5);
+  border-radius: 0px;
+}
+
+#text:selected {
+  font-weight: bold;
+  border: none;
+}

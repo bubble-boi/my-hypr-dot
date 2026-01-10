@@ -1,0 +1,47 @@
+{
+  "logo": {
+    "type": "auto",
+    "source": "auto",
+    "padding": {
+        "top": 1,
+        "left": 1,
+        "right": 1
+    }
+  },
+
+  "display": {
+    "separator": "-",
+    "color": {
+        "keys": "blue",
+        "title": "blue"
+    },
+    "key": {
+        "width": 11,
+        "type": "string"
+    }
+  },
+
+  "modules": [
+    "break",
+    "title",
+    "separator",
+    { "type": "os",       "key": "│Os     " },
+    { "type": "host",     "key": "│Host   " },
+    { "type": "kernel",   "key": "│Kernel " },
+    { "type": "custom",   "format": "\u001b[1;38;5;4m╋────────────────────────────────────────>\u001b[0m" },
+    { "type": "cpu",      "key": "│Cpu    " },
+    { "type": "gpu",      "key": "│Gpu    " },
+    { "type": "memory",   "key": "│Memory " },
+    { "type": "custom",   "format": "\u001b[1;38;5;4m╋────────────────────────────────────────>\u001b[0m" },
+    { "type": "wm",       "key": "│WM     " },
+    { "type": "custom",   "format": "\u001b[1;38;5;4m│Font   \u001b[0m- ProFont IIx Nerd Font Mono" },
+    { "type": "terminal", "key": "│Term   " },
+    { "type": "shell",    "key": "│Shell  " },
+    { "type": "packages", "key": "│Pkgs   " },
+    { "type": "custom",   "format": "\u001b[1;38;5;4m│Bar    \u001b[0m- waybar" },
+    { "type": "custom",   "format": "\u001b[1;38;5;4m│Imv    \u001b[0m- swayimg" },
+    { "type": "custom",   "format": "\u001b[1;38;5;4m│Fetch  \u001b[0m- fastfetch" },
+    { "type": "custom",   "format": "\u001b[1;38;5;4m╋────────────────────────────────────────>\u001b[0m" },
+    "break"
+  ]
+}

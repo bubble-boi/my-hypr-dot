@@ -1,0 +1,103 @@
+{
+    "modules-left":   [
+                        "clock",
+                        "custom/corner-top-right",
+                        "mpris#dynamic"
+                      ],
+
+    "modules-center": [
+                        "custom/corner-top-left",
+                        "custom/previous",
+                        "mpris#icon",
+                        "custom/next",
+                        "custom/corner-top-right"
+                      ],
+
+    "modules-right":  [
+                        "cpu",
+                        "memory",
+                        "network",
+                        "custom/corner-top-left",                        
+                        "battery"
+                      ],
+    "include": [
+        "~/.config/waybar/includes/corner.jsonc"
+    ],
+
+    "clock": {
+	"interval": 60,
+        "format": "{:%Y.%m.%d %H:%M}",
+        "tooltip": false
+    },
+
+    "mpris#dynamic": {
+	"format": "♫ {dynamic}",
+        "dynamic-order": ["artist", "title"],
+        "format-stopped": "♫ {No players found!",
+        "on-click": "",
+        "on-click-middle": "",
+        "on-click-right": "",
+        "max-length": 47,
+        "tooltip": false
+    },
+
+    "custom/previous": {
+        "format": "󰒮",
+        "on-click": "playerctl previous",
+        "tooltip": false
+    },
+
+    "mpris#icon": {
+	"format": "{status_icon}",
+	"status-icons": {
+		"playing": "󰏤",
+		"paused": "󰐊",
+                "stopped": "󰐊"
+	},
+        "on-click-middle": "",
+        "on-click-right": "",
+        "tooltip": false
+    },
+
+    "custom/next": {
+        "format": "󰒭",
+        "on-click": "playerctl next",
+        "tooltip": false
+    },
+
+    "cpu": {
+	"interval": 1,
+	"format": "{usage:>3}%, ",
+        "tooltip": false
+    },
+
+    "memory": {
+	"interval": 30,
+	"format": "{used:>4.1f} GiB, ",
+        "tooltip": false
+    },
+
+    "network": {
+	"interval": 1,
+	"format": "↓{bandwidthDownBytes:>9}, ↑{bandwidthUpBytes:>9}",
+	"format-disconnected": "[↓  --  B/s, ↑  --  B/s]",
+        "tooltip": false
+    },
+
+    "battery": {
+        "interval": 10,
+        "format": "{icon} {capacity:>3}%",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+	"format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
+	"events": {
+		"on-discharging-warning": "notify-send -u normal 'Low Battery'",
+		"on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+		"on-charging-100": "notify-send -u normal 'Battery Full!'"
+        },
+        "align": 1,
+        "tooltip": false
+    }
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+cliphist list |
+  wofi --dmenu --prompt "" --width=70% --height=50% -n |
+    cliphist decode |
+      wl-copy

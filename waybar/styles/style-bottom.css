@@ -1,0 +1,54 @@
+@import "css/colors.css";
+@import "css/corners.css";
+@import "css/global.css";
+
+#custom-corner-btm-right { background-position: 0% 100%; }
+#custom-corner-btm-left  { background-position: 100% 100%; }
+
+#custom-a,
+#workspaces,
+#disk {
+  background: @fedora;
+  padding: 0 25px;
+}
+
+/* border-radius */
+#custom-a   { border-top-right-radius: 10px; }
+#workspaces { border-radius: 10px 10px 0 0; }
+#disk       { border-top-left-radius: 10px; }
+
+/* workspaces */
+#workspaces { min-width: 350px; }
+#workspaces button {
+  border: none;
+  color: @color;
+}
+#workspaces button.active { 
+  text-shadow: red 2px 5px;
+}
+#workspaces button:hover {
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* hover */
+#workspaces button,
+#wireplumber.sink,
+#wireplumber.source {
+  transition: text-shadow .30s ease;
+}
+
+#workspaces button:hover,
+#wireplumber.sink:hover,
+#wireplumber.source:hover {
+  text-shadow: red 2px 5px;
+}
+
+/*  */
+#tray,
+#wireplumber.sink,
+#wireplumber.source {
+  color: alpha(@white, .8);
+}
+

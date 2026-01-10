@@ -1,0 +1,13 @@
+#custom-corner-top-right { background-image: url("corner/corner-top-right.svg"); }
+#custom-corner-top-left  { background-image: url("corner/corner-top-left.svg"); }
+#custom-corner-btm-right { background-image: url("corner/corner-btm-right.svg"); }
+#custom-corner-btm-left  { background-image: url("corner/corner-btm-left.svg"); }
+
+#custom-corner-top-right,
+#custom-corner-top-left,
+#custom-corner-btm-right,
+#custom-corner-btm-left {
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+}
+

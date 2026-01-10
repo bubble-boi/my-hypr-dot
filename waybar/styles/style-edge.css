@@ -1,0 +1,5 @@
+@import "css/colors.css";
+
+window#waybar { background: @fedora; }
+
+#custom-spice { font-size: 3px;}

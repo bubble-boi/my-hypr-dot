@@ -1,0 +1,21 @@
+{
+    "custom/corner-top-right": {
+        "format": "   ",
+        "tooltip": false
+    },
+
+    "custom/corner-top-left": {
+        "format": "   ",
+        "tooltip": false
+    },
+
+    "custom/corner-btm-right": {
+        "format": "   ",
+        "tooltip": false
+    },
+
+    "custom/corner-btm-left": {
+        "format": "   ",
+        "tooltip": false
+    }
+}

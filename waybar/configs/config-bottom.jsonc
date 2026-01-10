@@ -1,0 +1,61 @@
+{
+    "position": "bottom",
+
+    "modules-left":   [
+                        "custom/a",
+                        "custom/corner-btm-right",
+                        "tray"
+                      ],
+
+    "modules-center": [
+                        "custom/corner-btm-left",
+                        "hyprland/workspaces",
+                        "custom/corner-btm-right"
+                      ],
+
+    "modules-right":  [
+                        "wireplumber#sink",
+                        "wireplumber#source",
+                        "custom/corner-btm-left",
+                        "disk"
+                      ],
+    "include": [
+        "~/.config/waybar/includes/corner.jsonc"
+    ],
+
+    "custom/a": {
+        "exec": "uname -r",
+        "interval": 0
+    },
+
+    "tray": {
+	"icon-size": 21,
+	"spacing": 10
+    },
+
+    "hyprland/workspaces": {
+        "format": "{name}"
+    },
+
+    "wireplumber#sink": {
+        "format": "▼{volume:>3}%, ",
+        "format-muted": "▽{volume:>3}%, ",
+        "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+        "tooltip": false
+    },
+
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "▲{volume:>3}%",
+        "format-muted": "△{volume:>3}%",
+        "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+        "tooltip": false
+    },
+
+    "disk": {
+	"interval": 60,
+        "unit": "GiB",
+	"format": "{specific_used:>6.1f} GiB/{specific_total:>6.1f} GiB"
+    }
+
+}

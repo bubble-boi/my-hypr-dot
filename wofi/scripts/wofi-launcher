@@ -1,0 +1,2 @@
+#!/bin/bash
+wofi --show=drun --prompt="" --width=25% --height=50% -n
