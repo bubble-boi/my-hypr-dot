@@ -1,0 +1,8 @@
+@import "css/colors.css";
+
+window#waybar { background: @fedora; font-size: 3px; }
+
+#custom-ends { min-height: 10px; }
+
+#custom-sides { min-width: 10px; }
+

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -e
+
+choice="$(
+  printf '%s\n' \
+    lock \
+    suspend \
+    hibernate \
+    reboot \
+    shutdown |
+  wofi --show=dmenu --prompt="Power menu" --width=20% --height=35% -n -b
+)"
+
+case "$choice" in
+  lock)
+    hyprlock
+    ;;
+  suspend)
+    systemctl suspend && hyprlock
+    ;;
+  hibernate)
+    systemctl hibernate
+    ;;
+  reboot)
+    systemctl reboot
+    ;;
+  shutdown)
+    systemctl poweroff
+    ;;
+esac
+

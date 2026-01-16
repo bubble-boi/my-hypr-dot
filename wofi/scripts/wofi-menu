@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+DIRS=(
+  "$HOME/.config/wofi/scripts/menu"
+  "$HOME/.config/hypr/scripts"
+)
+
+files=()
+
+for dir in "${DIRS[@]}"; do
+  for f in "$dir"/*; do
+    [[ (-f $f || -L $f) && -x $f ]] && files+=( "$f" )
+  done
+done
+
+pick="$(
+  printf '%s\n' "${files[@]##*/}" |
+    wofi --show=dmenu --prompt="" --insensitive --width=25% --height=50% -n -b
+)"
+
+[[ -n "$pick" ]] || exit 0
+
+for f in "${files[@]}"; do
+  [[ "${f##*/}" == "$pick" ]] || continue
+
+  if grep -q '^# ARGS: required' "$f"; then
+    args="$(wofi --show=dmenu --prompt="args" --width=25% --height=10% -n -b)"
+    [[ -n "$args" ]] || exit 0
+    exec "$f" "$args"
+  else
+    exec "$f"
+  fi
+done
+

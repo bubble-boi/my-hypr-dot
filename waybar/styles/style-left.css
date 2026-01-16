@@ -1,0 +1,15 @@
+@import "css/corners.css";
+@import "css/global.css";
+
+#custom-corner-top-right { background-position: 0% 0%; }
+#custom-corner-top-left  { background-position: 0% 0%; }
+#custom-corner-btm-right { background-position: 0% 100%; }
+#custom-corner-btm-left  { background-position: 0% 100%; }
+
+#custom-picker {
+  background: @fedora;
+  border-radius: 0 10px 10px 0;
+  min-height: 300px;
+}
+
+

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+CURRENT=$(powerprofilesctl get)
+
+CASE_PERF="Performance"
+CASE_BAL="Balanced"
+CASE_PS="Power-Saver"
+
+[ "$CURRENT" = "performance" ] && CASE_PERF="*Performance"
+[ "$CURRENT" = "balanced" ] && CASE_BAL="*Balanced"
+[ "$CURRENT" = "power-saver" ] && CASE_PS="*Power-Saver"
+
+CHOICE=$(echo -e "$CASE_PERF\n$CASE_BAL\n$CASE_PS\nCancel" | \
+    wofi --show=dmenu --prompt="" --width=20% --height=30% -n -b)
+
+CHOICE=${CHOICE#\*}
+
+case "$CHOICE" in
+  Performance)
+    powerprofilesctl set performance
+    ;;
+  Balanced)
+    powerprofilesctl set balanced
+    ;;
+  Power-Saver)
+    powerprofilesctl set power-saver
+    ;;
+  Cancel)
+    ;;
+esac

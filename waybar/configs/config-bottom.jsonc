@@ -1,0 +1,73 @@
+{
+    "position": "bottom",
+
+    "modules-left":   [
+                        "custom/a",
+                        "custom/corner-btm-right",
+                        "tray"
+                      ],
+
+    "modules-center": [
+                        "custom/corner-btm-left",
+                        "hyprland/workspaces",
+                        "custom/corner-btm-right"
+                      ],
+
+    "modules-right":  [
+                        "backlight",
+                        "wireplumber#sink",
+                        "wireplumber#source",
+                        "custom/corner-btm-left",
+                        "custom/disk"
+                      ],
+    "include": [
+        "~/.config/waybar/includes/corner.jsonc"
+    ],
+
+    "custom/a": {
+	"interval": 0,
+        "exec": "~/.config/waybar/scripts/sys-info.sh",
+        "return-type": "json",
+        "format": "{text}",
+        "tooltip": true
+
+    },
+
+    "tray": {
+	"icon-size": 24,
+	"spacing": 10
+    },
+
+    "hyprland/workspaces": {
+        "format": "{name}"
+    },
+
+    "backlight": {
+	"format": "◆ {percent:>3}%, ",
+        "tooltip": true,
+        "tooltip-format": "backlight"
+    },
+
+    "wireplumber#sink": {
+        "format": "▼ {volume:>3}%, ",
+        "format-muted": "▽ {volume:>3}%, ",
+        "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+        "tooltip": true
+    },
+
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "▲ {volume:>3}%",
+        "format-muted": "△ {volume:>3}%",
+        "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+        "tooltip": true
+    },
+
+    "custom/disk": {
+	"interval": 60,
+        "exec": "~/.config/waybar/scripts/disk-usage.sh",
+        "return-type": "json",
+        "format": "{text}",
+        "tooltip": true
+    }
+}

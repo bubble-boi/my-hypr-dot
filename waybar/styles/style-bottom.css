@@ -1,0 +1,68 @@
+@import "css/corners.css";
+@import "css/global.css";
+
+#custom-corner-btm-right { background-position: 0% 100%; }
+#custom-corner-btm-left  { background-position: 100% 100%; }
+
+#custom-a,
+#workspaces,
+#custom-disk {
+  background: @fedora;
+  padding: 5px 25px 0 25px;
+}
+
+/* border-radius */
+#custom-a   { border-top-right-radius: 10px; }
+#workspaces { border-radius: 10px 10px 0 0; }
+#custom-disk       { border-top-left-radius: 10px; }
+
+/* workspaces */
+#workspaces { min-width: 300px; }
+#workspaces button {
+  padding: 0 10px;
+  border: none;
+  color: @color;
+}
+#workspaces button.active label{ 
+  text-shadow: @red 2px 5px;
+}
+#workspaces button:hover label{
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* hover */
+#custom-a,
+#workspaces button label,
+#backlight,
+#wireplumber.sink,
+#wireplumber.source,
+#custom-disk {
+  transition: text-shadow .30s ease;
+}
+
+#custom-a:hover,
+#workspaces button:hover label,
+#backlight:hover,
+#wireplumber.sink:hover,
+#wireplumber.source:hover,
+#custom-disk:hover {
+  text-shadow: @white 2px 2px;
+  color: @red;
+}
+
+/* tooltip */
+tooltip label {
+  margin: 20px;
+}
+
+/*  */
+#tray,
+#backlight,
+#wireplumber.sink,
+#wireplumber.source {
+  color: alpha(@white, .8);
+  text-shadow: @black 2px 5px;
+}
+

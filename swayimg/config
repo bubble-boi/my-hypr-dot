@@ -1,0 +1,36 @@
+[general]
+size = 1280, 720
+mode = gallery
+
+[viewer]
+window = #181818
+scale = fill
+
+[gallery]
+size = 200
+pstore = yes
+window = 00000000
+background = #00000000
+select = #00000000
+border = #00000000
+shadow = #00000000
+
+[font]
+name = ProFont IIx Nerd Font Mono
+color = #d8d8d8
+shadow = #00000000
+background = #00000000
+
+[info]
+show = yes
+status_timeout = 0
+
+[info.gallery]
+top_left = none
+top_right = index
+bottom_left = none
+bottom_right = none
+
+[keys.gallery]
+Return = exec ~/.config/swayimg/scripts/swayimg-set-hyprpaper "%"
+

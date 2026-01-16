@@ -1,0 +1,14 @@
+on-button-left=dismiss
+on-button-right=invoke-default-action
+
+width=500
+height=100
+
+font=ProFont IIx Nerd Font Mono 18
+layer=overlay
+anchor=top-center
+border-size=1
+border-radius=10
+background-color=#3584E480
+text-color=#FFFFFFFF
+default-timeout=0

@@ -1,0 +1,12 @@
+{
+    "position": "left",
+
+    "modules-right":  [
+                        "custom/sides"
+                      ],
+
+    "custom/sides": {
+        "format": " ",
+        "tooltip": false
+    }
+}

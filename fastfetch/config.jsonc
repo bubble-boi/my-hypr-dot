@@ -1,0 +1,46 @@
+{
+  "logo": {
+    "type": "auto",
+    "source": "auto",
+    "padding": {
+        "top": 1,
+        "left": 1,
+        "right": 1
+    }
+  },
+
+  "display": {
+    "separator": " 󰇘",
+    "color": {
+        "keys": "white"
+    },
+    "key": {
+        "width": 14,
+        "type": "string"
+    }
+  },
+
+  "modules": [
+    "break",
+    { "type": "custom",   "format": "\u001b[1;34mIdentity\u001b[0m" },
+    { "type": "os",       "key"   : " 󱞩 Os     " },
+    { "type": "host",     "key"   : " 󱞩 Host   " },
+    { "type": "kernel",   "key"   : " 󱞩 Kernel " },
+    "break",
+    { "type": "custom",   "format": "\u001b[1;34mHardware\u001b[0m" },
+    { "type": "cpu",      "key"   : " 󱞩 Cpu    " },
+    { "type": "gpu",      "key"   : " 󱞩 Gpu    " },
+    { "type": "memory",   "key"   : " 󱞩 Memory " },
+    { "type": "display",   "key"  : " 󱞩 Display" },
+    "break",
+    { "type": "custom",   "format": "\u001b[1;34mEnvironment\u001b[0m" },
+    { "type": "wm",       "key"   : " 󱞩 WM     " },
+    { "type": "custom",   "format": "\u001b[1;39m 󱞩 Font\u001b[0m    󰇘 ProFont IIx Nerd Font Mono" },
+    { "type": "terminal", "key"   : " 󱞩 Term   " },
+    { "type": "shell",    "key"   : " 󱞩 Shell  " },
+    { "type": "custom",   "format": "\u001b[1;39m 󱞩 Bar\u001b[0m     󰇘 waybar" },
+    { "type": "custom",   "format": "\u001b[1;39m 󱞩 Imv\u001b[0m     󰇘 swayimg" },
+    { "type": "cursor",   "key"   : " 󱞩 Cursor " },
+    "break"
+  ]
+}

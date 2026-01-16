@@ -1,0 +1,46 @@
+@define-color white  #FFFFFF;
+@define-color fedora #3584E4;
+@define-color red    #FF0000;
+@define-color placeholder_text_color #d3d3d3;
+
+* {
+  font-family: "ProFont IIx Nerd Font Mono";
+  font-size: 24px;
+  color: @white;
+  background: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+window {
+  background: @fedora;
+}
+
+window, #input, #inner-box, #outer-box, #scroll, #text {
+  margin: 5px;
+}
+
+#input {
+  border: 2px solid alpha(@white, .3);
+  border-radius: 10px;
+}
+
+#entry {
+  border-bottom: 1px solid alpha(@white, .3);
+  padding: 10px;
+}
+
+#text:selected {
+  text-shadow: @white 2px 2px;
+  color: @red;
+  border: none;
+}
+
+entry image {
+  -gtk-icon-transform: scale(0);
+}
+
+entry {
+  padding: 5px 0;
+}

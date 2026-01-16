@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1280 1280"
+     width="1280"
+     height="1280">
+
+<g transform="rotate(270 640 640)">
+  <path
+    fill="#3584E4"
+    fill-rule="evenodd"
+    d="
+      M 0 0
+      H 1280
+      V 1280
+      H 0
+      Z
+
+      M 0 0
+      H 1280
+      V 1280
+      H 300
+      A 300 300 0 0 1 0 980
+      V 0
+      Z
+    "
+  />
+</g>
+
+</svg>

@@ -1,0 +1,103 @@
+{
+    "modules-left":   [
+                        "custom/clock",
+                        "custom/corner-top-right",
+                        "mpris#dynamic"
+                      ],
+
+    "modules-center": [
+                        "custom/corner-top-left",
+                        "custom/previous",
+                        "custom/mpris-toggle",
+                        "custom/next",
+                        "custom/corner-top-right"
+                      ],
+
+    "modules-right":  [
+                        "cpu",
+                        "memory",
+                        "network",
+                        "custom/corner-top-left",                        
+                        "battery"
+                      ],
+    "include": [
+        "~/.config/waybar/includes/corner.jsonc"
+    ],
+
+    "custom/clock": {
+	"interval": 60,
+        "exec": "~/.config/waybar/scripts/clock-cal.py",
+        "format": "{text}",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "mpris#dynamic": {
+	"format": "♫ {dynamic}",
+        "dynamic-order": ["artist", "title"],
+        "format-stopped": "♫ {No players found!",
+        "on-click": "",
+        "on-click-middle": "",
+        "on-click-right": "",
+        "max-length": 47,
+        "tooltip": false
+    },
+
+    "custom/previous": {
+        "format": "󰒮",
+        "on-click": "playerctl previous",
+        "tooltip": false
+    },
+
+    "custom/mpris-toggle": {
+        "exec": "$HOME/.config/waybar/scripts/mpris-toggle.sh",
+        "on-click": "playerctl play-pause",
+        "tooltip": false
+    },
+
+    "custom/next": {
+        "format": "󰒭",
+        "on-click": "playerctl next",
+        "tooltip": false
+    },
+
+    "cpu": {
+	"interval": 1,
+	"format": "◆ {usage:>3}%, ",
+        "tooltip": true
+    },
+
+    "memory": {
+	"interval": 10,
+	"format": "❖ {used:>4.1f} GiB, ",
+        "tooltip": true,
+        "tooltip-format": "╭────────────────────────╮\n│[󰙎] Mem info      ─   │\n├────────────────────────┤\n│ MemTotal              │\n│  ╰ {total:5.2f} GiB           │\n│                        │\n│ SwapUsed / SwapTotal  │\n│  ╰ {swapUsed:>5.2f} GiB/ {swapTotal:>5.2f} GiB│\n╰────────────────────────╯"
+    },
+
+    "network": {
+	"interval": 1,
+	"format": "▼ {bandwidthDownBytes:>}, ▲ {bandwidthUpBytes:>}",
+	"format-disconnected": "▽  --  B/s, △  --  B/s",
+        "tooltip": true,
+        "tooltip-format": "[Network info]\n────────────────────────\n {ifname}\n ↪ {ipaddr}",
+        "tooltip-format-wifi": "╭────────────────────────────────────╮\n│[󰙎] Network info              ─   │\n├────────────────────────────────────┤\n│ {ifname}                         │\n│  ╰ {essid:<32}│\n│    ╰ {frequency} GHz                       │\n│    ╰ {ipaddr:<16}              │\n│    ╰ {bssid}             │\n│    ╰ {signaldBm:>4} dBm ({signalStrength:>3}%)               │\n╰────────────────────────────────────╯",
+        "tooltip-format-disconnected": "[Network info]\n────────────────────────\n disconnected!"
+    },
+
+    "battery": {
+        "interval": 10,
+        "format": "{icon} {capacity:>3}%",
+        "format-charging": "󰂄 {capacity:>3}%",
+        "states": {
+            "critical": 20
+        },
+	"format-icons": ["󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
+	"events": {
+		"on-discharging-critical": "notify-send -u critical 'Very Low Battery'"
+        },
+        "align": 1,
+        "tooltip": true,
+        "format-time": "{H}:{m}",
+        "tooltip-format": "[Battery info]\n────────────────────────\n power      cycles\n  ↪ {power:>2.0f} W    ↪ {cycles}\n\n time       health\n  ↪ {time}    ↪ {health:>3}%"
+    }
+}

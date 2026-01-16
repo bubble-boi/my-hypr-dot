@@ -1,0 +1,72 @@
+@import "colors.css";
+
+* {
+  transition: none;
+  background: none;
+  text-shadow: none;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.module {
+  font-family: "ProFont IIx Nerd Font Mono";
+  font-size: 20px;
+  color: @white;
+}
+
+/* menu */
+menu {
+  background: @fedora;
+  border-radius: 10px;
+  box-shadow: 4px 4px 2px alpha(@black, .1);
+}
+
+menuitem > * {
+  font-family: "ProFont IIx Nerd Font Mono";
+  font-size: 22px;
+  color: @white;
+  transition: text-shadow .30s ease;
+}
+
+menuitem:hover > check,
+menuitem:hover > box,
+menuitem:hover > box > *,
+menuitem:hover > label,
+menuitem:hover > label > *,
+menuitem:hover > arrow
+{
+  text-shadow: @white 2px 2px;
+  color: @red;
+}
+
+menu separator {
+  background: alpha(@white, .5);
+  margin: 5px 15px;
+}
+
+/* tooltip */
+tooltip label {
+  font-family: "ProFont IIx Nerd Font Mono";
+  font-size: 16px;
+  background: @fedora;
+  color: @white;
+  border-radius: 10px;
+  box-shadow: 4px 4px 2px alpha(@black, .1);
+  padding: 20px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+tooltip,
+tooltip label {
+  animation: fade-in 0.5s ease-out;
+}
+

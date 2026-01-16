@@ -1,0 +1,12 @@
+{
+    "position": "bottom",
+
+    "modules-right":  [
+                        "custom/ends"
+                      ],
+
+    "custom/ends": {
+        "format": " ",
+        "tooltip": false
+    }
+}
